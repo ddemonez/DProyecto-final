@@ -3,6 +3,8 @@ package controlador;
 import modelo.Reparacion;
 import modelo.ReparacionDAO;
 import vista.VistaReparaciones;
+import reportes.GenerarReportePDF;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -22,6 +24,8 @@ public class ControladorReparaciones implements ActionListener {
         vista.btnEliminar.addActionListener(this);
         vista.btnLimpiar.addActionListener(this);
         vista.btnCargar.addActionListener(this);
+        vista.btnReporte.addActionListener(this);
+
     }
 
     @Override
@@ -36,7 +40,10 @@ public class ControladorReparaciones implements ActionListener {
             cargarTabla();
         } else if (e.getSource() == vista.btnLimpiar) {
             limpiarCampos();
-        }
+        }else if (e.getSource() == vista.btnReporte) {
+    GenerarReportePDF.crearReporte();
+}
+
     }
 
     private void agregar() {

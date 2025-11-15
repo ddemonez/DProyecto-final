@@ -13,7 +13,7 @@ public class conexion {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             con = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("✅ Conexión exitosa a la base de datos.");
+            System.out.println("Conexión exitosa a la base de datos.");
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println(" Error de conexión: " + e.getMessage());
         }

@@ -9,7 +9,7 @@ import java.awt.*;
 public class VistaReparaciones extends JFrame {
 
     public JTextField txtCodigo, txtNombre, txtModelo, txtTipo, txtCosto, txtFecha;
-    public JButton btnAgregar, btnActualizar, btnEliminar, btnLimpiar, btnCargar;
+    public JButton btnAgregar, btnActualizar, btnEliminar, btnLimpiar, btnCargar, btnReporte;
     public JTable tabla;
 
     public VistaReparaciones() {
@@ -89,8 +89,8 @@ public class VistaReparaciones extends JFrame {
 
         // === Panel botones ===
         JPanel panelBotones = new JPanel();
-        panelBotones.setLayout(new GridLayout(5, 1, 5, 8));
-        panelBotones.setBounds(400, 70, 150, 220);
+        panelBotones.setLayout(new GridLayout(6, 1, 5, 8)); // Aumentamos a 6 filas
+        panelBotones.setBounds(400, 70, 150, 260);
         panelBotones.setBackground(new Color(245, 245, 245));
         add(panelBotones);
 
@@ -109,6 +109,24 @@ public class VistaReparaciones extends JFrame {
             b.setBorderPainted(false);
             panelBotones.add(b);
         }
+
+        // === Botón de reporte ===
+        btnReporte = new JButton("Generar Reporte PDF");
+        btnReporte.setBackground(new Color(255, 0, 0)); // rojo
+        btnReporte.setForeground(Color.WHITE);
+        btnReporte.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        btnReporte.setFocusPainted(false);
+        btnReporte.setBorderPainted(false);
+
+        // Si tienes un ícono PDF, agrégalo aquí:
+        try {
+            btnReporte.setIcon(new ImageIcon(getClass().getResource("/imagenes/pdf_icon.png")));
+            btnReporte.setHorizontalAlignment(SwingConstants.LEFT);
+        } catch (Exception e) {
+            System.out.println("No se encontró el icono PDF (opcional).");
+        }
+
+        panelBotones.add(btnReporte);
 
         // === Tabla ===
         tabla = new JTable(new DefaultTableModel(
