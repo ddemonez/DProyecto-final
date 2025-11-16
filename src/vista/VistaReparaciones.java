@@ -118,7 +118,7 @@ public class VistaReparaciones extends JFrame {
         btnReporte.setFocusPainted(false);
         btnReporte.setBorderPainted(false);
 
-        // Si tienes un ícono PDF, agrégalo aquí:
+
         try {
             btnReporte.setIcon(new ImageIcon(getClass().getResource("/imagenes/pdf_icon.png")));
             btnReporte.setHorizontalAlignment(SwingConstants.LEFT);
